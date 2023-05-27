@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.spacetop{
+    margin-top: 80px;
+}
+.section-index{
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: rgb(56, 131, 198);
+}
+
+.index-background-image{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.background-image{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.background-image img{
+    width: 100%;
+    height: calc(100vh - 80px);
+    object-fit: cover;
+}
+.background-message{
+    width: 30vw;
+    position: absolute;
+    left: 50px;
+    top: 30vh;
+    font-family: 'Pangolin', cursive;
+    font-size: 2.5rem;
+}
+.background-container-info{
+    width: 25vw;
+    height: auto;
+    position: absolute;
+    right: 0px;
+    bottom: 10vh;
+    font-family: 'Pangolin', cursive;
+}
+.background-container-info h1{
+    font-weight:bolder;
+    font-size: 2rem; 
+}
+.background-container-info h2{
+    font-size: 1.5rem;
+}
+.background-container-info h3{
+    font-size: 1rem;
+}
+.background-container-info-button{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.background-container-info input{
+    width: 100px;
+    height: 40px;
+    background-color:#E76F51;
+    border-radius: 50px;
+    color: #FFF;
+    border: 0;
+
+}
+/************DECORATION**************/
+.section-decoration{
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    background-color: #F7F9F9;
+}
+.decoration-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.decoration-container-left{
+    width: 33%;
+    position: relative;
+}
+.decoration-container-center{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lobster';
+    font-style: italic;
+    font-weight: bold;
+    font-size: 3rem;
+}
+.decoration-container-right{
+    width: 33%;
+    position: relative;
+}
+.bubblepet{
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.bubblepet img{
+    width: 100%;
+    height: auto;
+}
+.bubble-l-d{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.bubble-l-u{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.bubble-r-d{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.bubble-r-u{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
