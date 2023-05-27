@@ -1,3 +1,17 @@
+# Pet-adoption
+
+### ¡Bienvenido a nuestra página de adopción de animales!
+
+En nuestro sitio web, nos dedicamos a promover y facilitar la adopción de animales en busca de un hogar amoroso. Creemos firmemente en brindar una segunda oportunidad a estos maravillosos seres vivos y conectarlos con familias comprometidas y responsables.
+
+Aquí encontrarás una amplia variedad de animales disponibles para adopción, desde perros y gatos hasta pequeñas mascotas como conejos y hamsters. Cada uno de ellos tiene su propia historia y personalidad única, esperando ansiosamente encontrar un hogar lleno de cariño y cuidado.
+Nuestro objetivo es hacer que el proceso de adopción sea fácil y transparente. En nuestra página, podrás explorar perfiles detallados de los animales disponibles, incluyendo información sobre su edad, tamaño, nombre y una pequeña descripcion además encontrarás fotos adorables que te ayudarán a conocerlos mejor.
+
+Una vez que encuentres un animal que roba tu corazón, puedes utilizar la informacion de contacto que se encuentra en línea para ponerte en contacto y  dar seguimiento al proceso. Una vez se pongan de acuerdo habrá un nuevo compañero peludo en hogar.
+¡Únete a nosotros en esta hermosa misión de darle un hogar lleno de amor y felicidad a un animal necesitado! Explora nuestra página y comienza el emocionante viaje hacia la adopción de tu compañero perfecto.
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
