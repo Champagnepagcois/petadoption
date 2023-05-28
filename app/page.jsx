@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 import "./style/indexPage.css";
 import HomeCarruselElement from "../components/homeCarruselElement";
 
@@ -7,6 +8,7 @@ import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
 export default function IndexPage() {
+  const router = useRouter();
   return (
     <div className="spacetop">
       <section className="section-index">
