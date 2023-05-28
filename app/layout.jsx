@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Head from "next/head";
+import Link from "next/link";
 import "./style/header.css";
 import { Inter } from "next/font/google";
 
@@ -26,6 +27,20 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
           rel="stylesheet"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap"
+          rel="stylesheet"
+        />
+
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
       </Head>
       <body className={inter.className}>
         <header>
@@ -39,8 +54,8 @@ export default function RootLayout({ children }) {
           </div>
           <div className="header-container-buttons">
             <div className="container-buttons-center">
-              <input type="submit" value="Inicio" />
-              <input type="submit" value="Adoptar" />
+              <Link href="/">Inicio</Link>
+              <Link href="/Search">Adoptar</Link>
             </div>
           </div>
           <div className="header-searchbar">

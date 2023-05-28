@@ -29,13 +29,18 @@ header{
     justify-content: space-between;
     align-items:center;
 }
-.container-buttons-center input{
-    width: 75px;
-    height: 040px;
-    background-color:#E76F51;
-    border-radius: 50px;
-    color: #FFF;
-    border: 0;
+.container-buttons-center a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  font-size: 15px;
+  height: 40px;
+  background-color:#E76F51;
+  border-radius: 50px;
+  color: #FFF;
+  text-decoration: none;
+  border: 0;
 
 }
 .header-searchbar{
