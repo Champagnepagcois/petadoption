@@ -11,6 +11,119 @@ Una vez que encuentres un animal que roba tu corazón, puedes utilizar la inform
 ¡Únete a nosotros en esta hermosa misión de darle un hogar lleno de amor y felicidad a un animal necesitado! Explora nuestra página y comienza el emocionante viaje hacia la adopción de tu compañero perfecto.
 
 
+## Instalacion de Node js y NPM
+Para empezar debes instalar node js.
+El siguiente link contiene las diferentes versiones según tu sistema operativo
+
+https://nodejs.org/en/download
+
+o bien si tienes sistema Windows (x64) utiliza el siguiente link
+
+https://nodejs.org/es 
+
+![App Screenshot](https://d2ms8rpfqc4h24.cloudfront.net/Install_Node_js_64_bit_Version_a789f12c8f.png)
+
+
+Despues sigue los pasos
+
+
+![App Screenshot](https://d2ms8rpfqc4h24.cloudfront.net/Install_NPM_and_Node_js_dfb6f2ff29.png)
+
+Escoge la ruta en la que quieres que se guarde (De preferencia no edites la informacion y solo da clic en siguiente)
+
+![App Screenshot](https://d2ms8rpfqc4h24.cloudfront.net/uploads/2021/10/Choose-Path-to-Install-Node.js.png)
+
+Aqui indica que se va a instalar, solo da clic en siguiente 
+![App Screenshot](https://d2ms8rpfqc4h24.cloudfront.net/Select_Node_js_Features_to_install_0847ad9e3a.png)
+
+Finalmente da clic en "Install"
+![App Screenshot](https://d2ms8rpfqc4h24.cloudfront.net/uploads/2021/10/Final-Step-of-Node.js-Installation.png)
+
+Si todo se hizo correctamente deberias tener instalado Node js y Npm package manager.
+Para comprobar solo debes abrir tu terminal y escribir lo siguiente: 
+
+![App Screenshot](https://d2ms8rpfqc4h24.cloudfront.net/uploads/2021/10/Check-Node.js-and-NPM-Version.png)
+
+
+
+```bash
+  node -v
+```
+y tambien 
+```bash
+  npm -v
+```
+
+![App Screenshot](https://d2ms8rpfqc4h24.cloudfront.net/uploads/2021/10/Frequent-Update-of-Node-and-NPM.png)
+
+El resultado debe dar la version de lo que instalaste respectivamente, no te preocupes si las versiones son diferentes porque probablemente hayas descargado una version mas reciente.
+
+
+## Instalacion de Git
+Para descargar el proyecto de una manera mas sencilla y facil debes instalar Git, en el siguiente video explica como instalarlo.
+
+
+https://www.youtube.com/watch?v=cYLapo1FFmA
+
+Una vez instalado Git abre tu consola y dirigete a la ruta donde vas a guardar el proyecto.
+(Para moverte entre las rutas de utiliza el operador "cd").
+
+Si estamos en la ruta "C:\" y queremos movernos a la ruta "C:\documentos/escuela" ingresamos el siguiente comando en la consola
+```bash
+cd documentos/escuela
+```
+Una vez que estemos en la ruta donde queremos que se encuentre nuestro proyecto introducimos el siguiente comando en la consola
+```bash
+git clone https://github.com/Champagnepagcois/petadoption.git
+```
+
+En la consola veras como se empieza a descargar el archivo, veras algo como esto :
+![App Screenshot](https://opensource.com/sites/default/files/u128651/git_guide12.png)
+
+
+## No descargaste Git?
+
+Si no descargaste git no hay problema tambien puedes obtener el codigo descargandolo directamente como un archivo comprimido zip y descomprimiendolo.
+
+1-Ingresa a la pagina donde esta el codigo
+
+https://github.com/Champagnepagcois/petadoption
+
+2- Da clic en el boton verde donde dice "Code" despues hasta abajo tiene la opcion "Download zip".
+
+![App Screenshot](https://helpdeskgeek.com/wp-content/pictures/2021/06/11CodeButtonDownloadZip.png)
+
+3-Mueve el archivo a donde sea que lo vas a descomprimir y procede a descomprimirlo.
+
+
+## Correr programa
+
+Una vez que tengas el proyecto descargado, ya sea por medio de Git o por medio del archivo comprimido (Recuerda que ya debe estar descomprimido), es hora de ejecutar el proyecto, asi que haz lo siguiente:
+1-Abre tu consola y ubicate en la ruta que esta la carpeta principal del proyecto (La carpeta que contiene todo).
+2-Ingresa el siguiente comando en la terminal:
+```bash
+cd petadoption
+```
+Esto con la finalidad de ubicarnos dentro de la carpeta.
+
+3-Una vez dentro de la carpeta principal ingresa el siguiente comando en la terminal:
+
+```bash
+npm install
+```
+En este paso veras que se empiezan a descargar unas cosas, espera a que termine la instalacion para seguir con el siguiente paso.
+4-Despues de que termino la descarga ingresa el siguiente comando en la terminal:
+```bash
+npm run dev
+```
+5-Listo :)
+Ya terminaste con todos los pasos, ahora en la consola te indicara cuando termine de cargar y te indicara una url en la consola, ahora solo debes ingresar a esa url, en este proyecto se deberia estar ejecutando en la siguiente url:
+
+http://localhost:3000/
+
+
+
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
