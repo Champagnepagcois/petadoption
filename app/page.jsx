@@ -234,16 +234,16 @@ export default function IndexPage() {
             <div className="contact-container-content-form">
               <div className="contact-form-container">
                 <form className="form" action="" method="post">
-                  <div class="title">Dejanos tu mensaje</div>
+                  <div className="title">Dejanos tu mensaje</div>
                   <input
                     type="text"
                     placeholder="Ingresa tu nombre"
-                    class="input"
+                    className="input"
                   />
                   <input
                     type="text"
                     placeholder="Ingresa tu correo"
-                    class="input"
+                    className="input"
                   />
                   <textarea placeholder="Escribe lo que quieras decirnos!!"></textarea>
                   <button>Enviar</button>
