@@ -1,0 +1,4 @@
+-Edit navbar
+-make DB
+-Add connection to DB 
+-Authtentication
