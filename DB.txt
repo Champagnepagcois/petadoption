@@ -1,0 +1,111 @@
+CREATE DATABASE petadoption;
+\connect petadoption
+CREATE TABLE usuario(
+	id_usuario serial primary key not null,
+	nombre VARCHAR(50) NOT NULL,
+	correo VARCHAR(150) NOT NULL,
+	telefono varchar(12) NOT NULL,
+	direccion_pais VARCHAR(50),
+	direccion_estado VARCHAR(50),
+	direccion_colonia VARCHAR(50),
+	direccion_calle VARCHAR(50),
+	direccion_numext VARCHAR(50),
+	direccion_numint VARCHAR(50),
+	direccion_descripcion VARCHAR(50),
+	direccion_cp VARCHAR(50),
+	password VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE mascota(
+	id_mascota serial primary key NOT NULL,
+	nombre VARCHAR(50) NOT NULL,
+	tipo_animal VARCHAR(50) NOT NULL,
+	raza_caracteristica VARCHAR(100),
+	fecha_nacimiento DATE,
+	genero BOOLEAN NOT NULL,
+	size VARCHAR(5),
+	direccion_pais VARCHAR(50),
+	direccion_estado VARCHAR(50),
+	direccion_colonia VARCHAR(50),
+	direccion_calle VARCHAR(50),
+	direccion_numext VARCHAR(50),
+	direccion_numint VARCHAR(50),
+	direccion_descripcion VARCHAR(50),
+	direccion_cp VARCHAR(50),
+	descripcion VARCHAR(300)
+);
+CREATE TABLE usuario_mascota(
+	fecha_subida date NOT NULL,
+	id_usuario INTEGER REFERENCES usuario (id_usuario),
+	id_mascota INTEGER REFERENCES mascota (id_mascota)
+);
+CREATE TABLE imagen(
+	id_imagen SERIAL PRIMARY KEY NOT NULL, 
+	link VARCHAR(350) NOT NULL,
+	id_mascota INTEGER REFERENCES mascota (id_mascota)
+);
+CREATE TABLE frase(
+	id_frase SERIAL PRIMARY KEY NOT NULL,
+	frase VARCHAR(200)
+);
+
+
+
+INSERT INTO usuario(
+	nombre  ,
+	correo  ,
+	telefono,
+	direccion_pais,
+	direccion_estado,
+	direccion_colonia,
+	direccion_calle,
+	direccion_numext,
+	direccion_numint,
+	direccion_descripcion,
+	direccion_cp,
+	password
+)
+
+
+ VALUES('Juan Pérez', 'juanperez@example.com', '555-123-4567', 'México', 'Ciudad de México', 'Del Valle', 'Calle A', '123', 'Apto 4B', 'Cerca del parque principal', '12345', 'contraseña123'),
+('María López', 'marialopez@example.com', '555-987-6543', 'México', 'Jalisco', 'Guadalajara', 'Calle B', '456', '', 'Cerca de la plaza principal', '54321', 'contraseña456'),
+('Pedro Ramírez', 'pedroramirez@example.com', '555-555-5555', 'México', 'Nuevo León', 'Monterrey', 'Calle C', '789', 'Depto 7C', 'Cerca del centro comercial', '67890', 'contraseña789'),
+('Ana Torres', 'anatorres@example.com', '555-111-2222', 'México', 'Puebla', 'Puebla', 'Calle D', '101', '', 'Cerca del zócalo', '09876', 'contraseñaabc'),
+('Luisa García', 'luisagarcia@example.com', '555-222-3333', 'México', 'Quintana Roo', 'Cancún', 'Calle E', '202', '', 'Cerca de la playa', '56789', 'contraseñadef'),
+('Carlos Martínez', 'carlosmartinez@example.com', '555-333-4444', 'México', 'Guanajuato', 'León', 'Calle F', '303', '', 'Cerca del estadio', '43210', 'contraseñaghi'),
+('Sofía Rodríguez', 'sofiarodriguez@example.com', '555-444-5555', 'México', 'Yucatán', 'Mérida', 'Calle G', '404', '', 'Cerca del parque central', '32109', 'contraseñajkl'),
+('Javier Silva', 'javiersilva@example.com', '555-555-6666', 'México', 'Oaxaca', 'Oaxaca', 'Calle H', '505', '', 'Cerca del zócalo', '21098', 'contraseñamno'),
+('Laura Hernández', 'laurahernandez@example.com', '555-666-7777', 'México', 'Veracruz', 'Veracruz', 'Calle I', '606', '', 'Cerca del malecón', '10987', 'contraseñapqr'),
+('Miguel Gómez', 'miguelgomez@example.com', '555-777-8888', 'México', 'Sonora', 'Hermosillo', 'Calle J', '707', '', 'Cerca del parque industrial', '98765', 'contraseñasuv');
+
+
+
+
+INSERT INTO mascota(
+
+    nombre,
+	tipo_animal,
+	raza_caracteristica,
+	fecha_nacimiento,
+    genero,
+	size,
+	direccion_pais,
+	direccion_estado,
+	direccion_colonia,
+	direccion_calle,
+	direccion_numext,
+	direccion_numint,
+	direccion_descripcion,
+	direccion_cp,
+	descripcion ) VALUES 
+
+('Max', 'Perro', 'Labrador Retriever', '2019-03-10', '1', 'Grande', 'México', 'Ciudad de México', 'Polanco', 'Calle A', '123', 'Apto 4B', 'Cerca del parque principal', '12345', 'Max es un perro amigable y juguetón. Le encanta correr y jugar con una pelota.'),
+('Luna', 'Gato', 'Siamés', '2020-07-15', '0', 'Pequeño', 'México', 'Jalisco', 'Guadalajara', 'Calle B', '456', '', 'Cerca de la plaza principal', '54321', 'Luna es una gata curiosa y tranquila. Le gusta dormir la mayor parte del día y recibir caricias.'),
+('Rocky', 'Perro', 'Bulldog Francés', '2018-11-02', '1', 'Mediano', 'México', 'Nuevo León', 'Monterrey', 'Calle C', '789', 'Depto 7C', 'Cerca del centro comercial', '67890', 'Rocky es un perro valiente y protector. Le encanta pasear y jugar con otros perros.'),
+('Mia', 'Gato', 'Persa', '2019-05-20', '0', 'Mediano', 'México', 'Puebla', 'Puebla', 'Calle D', '101', '', 'Cerca del zócalo', '09876', 'Mia es una gata elegante y tranquila. Le gusta descansar en lugares cómodos y observar su entorno.'),
+('Toby', 'Perro', 'Golden Retriever', '2020-02-08', '1', 'Grande', 'México', 'Quintana Roo', 'Cancún', 'Calle E', '202', '', 'Cerca de la playa', '56789', 'Toby es un perro amigable y cariñoso. Le encanta nadar y jugar con pelotas en el agua.'),
+('Lola', 'Gato', 'Maine Coon', '2017-09-30', '0', 'Grande', 'México', 'Guanajuato', 'León', 'Calle F', '303', '', 'Cerca del estadio', '43210', 'Lola es una gata independiente y juguetona. Le gusta explorar su entorno y cazar juguetes.'),
+('Maxi', 'Perro', 'Chihuahua', '2021-01-12', '1', 'Pequeño', 'México', 'Yucatán', 'Mérida', 'Calle G', '404', '', 'Cerca del parque central', '32109', 'Maxi es un perro pequeño y enérgico. Le encanta ladrar y jugar con sus juguetes favoritos.'),
+('Milo', 'Perro', 'Pug', '2019-07-25', '1', 'Pequeño', 'México', 'Oaxaca', 'Oaxaca', 'Calle H', '505', '', 'Cerca del zócalo', '21098', 'Milo es un perro cariñoso y juguetón. Le gusta pasear al aire libre y recibir atención de sus dueños.'),
+('Nina', 'Gato', 'Bengalí', '2020-04-18', '0', 'Mediano', 'México', 'Veracruz', 'Veracruz', 'Calle I', '606', '', 'Cerca del malecón', '10987', 'Nina es una gata activa y curiosa. Le gusta trepar y explorar su entorno.'),
+('Simba', 'Perro', 'Husky Siberiano', '2018-12-05', '1', 'Grande', 'México', 'Sonora', 'Hermosillo', 'Calle J', '707', '', 'Cerca del parque industrial', '98765', 'Simba es un perro enérgico y juguetón. Le encanta correr y jugar al aire libre.');
