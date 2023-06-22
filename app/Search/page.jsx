@@ -3,12 +3,12 @@ import React from "react";
 import "../style/searchPage.css";
 import CardsPetsSearch from "@/components/CardsPetsSearch";
 import {useSearchParams} from 'next/navigation'
-import Search from "@/services/db/models/search";
+//import Search from "@/services/db/models/search";
 export default async function Adoption() {
   const searchParams = useSearchParams()
   const parametro =searchParams.get('param');
 if(parametro==""){
-  const DataEmptySearch = await Search.methods.getInfoCard();
+  //const DataEmptySearch = await Search.methods.getInfoCard();
 }
 
   return (
