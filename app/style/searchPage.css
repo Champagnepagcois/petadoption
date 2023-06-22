@@ -1,20 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica&family=Ubuntu:wght@300&display=swap');
 .spacetop{
     margin-top: 80px;
     margin: 0;
     padding: 0;
 }
+*{
+    font-family: 'Geologica', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
 
 .section-inputSearch{
+    margin-top: 80px;
     width: 100%;
-    height: 20vh;
-    background-color: aqua;
+    height: 15vh;
     display: flex;
     background-image: url("https://img.freepik.com/free-vector/pet-elements-pattern_23-2147536787.jpg?1&w=826&t=st=1685301261~exp=1685301861~hmac=64744558ae013e1a0acfec50fdede76dc01cedef987ae267a513dbc09170ce48");
 
 }
 .section-inputSearch-container{
     width: 100%;
-    height: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .inputSearch-background{
     width: 100%;
@@ -98,13 +106,14 @@
     gap: 16px;
 }
 .itemcontent{
+    justify-self: center;
     width: 350px;
     height: 500px;
     display: flex;
     border-radius: 20px;
     overflow: hidden;
     flex-direction: column;
-    background-color: #FFF;
+    background-color: #d2d2d250;
     align-items: center;
 }
 .itemcontent-image{
@@ -121,6 +130,7 @@
     width: 90%;
     display: flex;
     flex-direction: column;
+    font-weight:bold;
 }
 .itemcontent-info-description{
     display: flex;
