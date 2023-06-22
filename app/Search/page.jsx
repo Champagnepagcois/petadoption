@@ -1,8 +1,16 @@
+'use client';
 import React from "react";
 import "../style/searchPage.css";
 import CardsPetsSearch from "@/components/CardsPetsSearch";
+import {useSearchParams} from 'next/navigation'
+import Search from "@/services/db/models/search";
+export default async function Adoption() {
+  const searchParams = useSearchParams()
+  const parametro =searchParams.get('param');
+if(parametro==""){
+  const DataEmptySearch = await Search.methods.getInfoCard();
+}
 
-export default function Adoption() {
   return (
     <>
       <section className="section-inputSearch">
@@ -24,7 +32,8 @@ export default function Adoption() {
               type="text"
               placeholder="Ingresa ubicacion o raza (ej. Mexico)"
             />
-            <input type="button" value="Buscar" />
+            <input type="button" value="Buscar"/>
+            <p>{parametro}</p>
           </div>
         </div>
       </section>

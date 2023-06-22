@@ -1,7 +1,22 @@
-import React from "react";
-import "../style/authPage.css";
+"use client";
+import React, { useState } from "react";
+import "../style/authPageSignin.css";
+import "../style/authPageSignup.css";
+import Signin from "@/components/signin";
+import Signup from "@/components/signup";
 
 export default function AuthPage() {
+  const [signIn, setSignin] = useState(true);
+  const [textauth, setTextauth] = useState({
+    signin: ["No tienes cuenta", "Crear una cuenta","Correo y/o contraseña incorrecta"],
+    signup: ["Ya tienes cuenta", "Inicia sesion","Introduce la informacion en todos los campos"],
+  });
+  const handleSubmit = (e) => {
+    console.log("Working..");
+  };
+  const handleChangeAuth = () => {
+    setSignin(!signIn);
+  };
   return (
     <div className="spacetop">
       <div className="section-auth">
@@ -15,41 +30,14 @@ export default function AuthPage() {
             </div>
           </div>
           <div className="auth-container-login">
-            <div className="container-login-signin">
-              <div className="container-login-signin-title">
-                <h1>Inicia sesion</h1>
-              </div>
-              <div className="container-login-signin-text">
-                <p>¡Nos encanta verte de nuevo por aquí!</p>
-              </div>
-              <div className="container-login-signin-inputs">
-                <div className="container-login-signin-inputs-individual">
-                  <input
-                    type="text"
-                    placeholder="Correo"
-                    name="correo"
-                    id="correoid"
-                  />
-                </div>
-                <div className="container-login-signin-inputs-individual">
-                  <input
-                    type="text"
-                    placeholder="Contraseña"
-                    name="password"
-                    id="passwordid"
-                  />
-                </div>
-              </div>
-              <div className="container-login-signin-message">
-                <label htmlFor="">Correo y/o contraseña incorrecta</label>
-              </div>
-              <div className="container-login-signin-btn">
-                <input type="button" value="Iniciar sesion" />
-              </div>
-            </div>
+            {signIn ? <Signin /> : <Signup />}
             <div className="container-login-signin-createAccount">
-              <label htmlFor="">No tienes cuenta?</label>
-              <label htmlFor="">Crear una cuenta</label>
+              <label htmlFor="">
+                {signIn ? textauth.signin[0] : textauth.signup[0]}?
+              </label>
+              <label htmlFor="" onClick={handleChangeAuth}>
+                {signIn ? textauth.signin[1] : textauth.signup[1]}
+              </label>
             </div>
           </div>
         </div>
