@@ -1,0 +1,12 @@
+export const consults = {
+    getInfoCard:"SELECT m.id_mascota,m.resena, m.direccion_estado,m.direccion_delegacion, m.direccion_ciudad, m.nombre,(EXTRACT(YEAR FROM AGE(CURRENT_DATE, m.fecha_nacimiento)) * 12) + EXTRACT(MONTH FROM AGE(CURRENT_DATE, m.fecha_nacimiento)) AS meses, m.tipo_animal, m.raza_caracteristica, m.size, i.id_mascota, i.link FROM mascota AS m INNER JOIN (SELECT id_mascota, MIN(link) AS link FROM imagen GROUP BY id_mascota ) AS i ON m.id_mascota = i.id_mascota WHERE m.direccion_estado=$1 OR  m.direccion_delegacion=$1 OR m.tipo_animal=$1 OR m.size=$1;",
+    getInfoCard2:"SELECT m.id_mascota,m.resena, m.direccion_estado,m.direccion_delegacion, m.direccion_ciudad, m.nombre,(EXTRACT(YEAR FROM AGE(CURRENT_DATE, m.fecha_nacimiento)) * 12) + EXTRACT(MONTH FROM AGE(CURRENT_DATE, m.fecha_nacimiento)) AS meses, m.tipo_animal, m.raza_caracteristica, m.size, i.id_mascota, i.link FROM mascota AS m INNER JOIN (SELECT id_mascota, MIN(link) AS link FROM imagen GROUP BY id_mascota ) AS i ON m.id_mascota = i.id_mascota;",
+    getDetailsID:"SELECT * FROM mascota INNER JOIN imagen ON mascota.id_mascota = imagen.id_mascota WHERE mascota.id_mascota =$1;",
+    getDataCarrusel:"SELECT *, (EXTRACT(YEAR FROM AGE(CURRENT_DATE, m.fecha_nacimiento)) * 12) + EXTRACT(MONTH FROM AGE(CURRENT_DATE, m.fecha_nacimiento)) AS edad FROM mascota AS m INNER JOIN (SELECT id_mascota, MIN(link) AS link FROM imagen GROUP BY id_mascota ) AS i ON m.id_mascota = i.id_mascota LIMIT 5;",
+    getImagesID:"SELECT link FROM imagen WHERE id_mascota =$1",
+    getAllMascotaID: "SELECT *, (EXTRACT(YEAR FROM AGE(CURRENT_DATE, m.fecha_nacimiento)) * 12) + EXTRACT(MONTH FROM AGE(CURRENT_DATE, m.fecha_nacimiento)) AS edad FROM mascota AS m  WHERE m.id_mascota=$1;",
+    getCredentialByEmail:"SELECT id_usuario as id,correo,password,nombre from usuario WHERE correo = $1",
+    insertUser:"INSERT INTO usuario(nombre,correo,telefono,password) VALUES ($1,$2,$3,$4) RETURNING id_usuario,nombre,correo;",
+    insertPet:"INSERT INTO mascota(nombre,tipo_animal,raza_caracteristica,fecha_nacimiento,genero,size,id_usuario,direccion_calle,direccion_cp,direccion_estado, direccion_delegacion, direccion_ciudad,direccion_colonia,direccion_descripcion,telefono, correo,resena) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17) RETURNING id_mascota;",
+    insertImage:"INSERT INTO imagen(link,id_mascota) VALUES ($1,$2);",
+}

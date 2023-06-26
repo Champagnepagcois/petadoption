@@ -1,44 +1,83 @@
-import { cookies } from "next/dist/client/components/headers";
+import bcrypt from "bcrypt";
+import { createHash } from "crypto";
 import conn from "../config";
 import { Validation } from "./Validation";
+import { consults } from "./consults";
 
 class Auth {
   static methods = {};
 
   constructor(data) {
-    this.id_mascota = data.id_mascota;
-    this.nombre = data.nombre;
-    this.tipo_animal = data.tipo_animal;
-    this.raza_caracteristica = data.raza_caracteristica;
-    this.fecha_nacimiento = data.fecha_nacimiento;
-    this.genero = data.genero;
-    this.size = data.size;
-    this.direccion_pais = data.direccion_pais ;
-	this.direccion_estado = data.direccion_estado ;
-	this.direccion_colonia = data.direccion_colonia ;
-	this.direccion_calle = data.direccion_calle ;
-	this.direccion_numext = data.direccion_numext ;
-	this.direccion_numint = data.direccion_numint ;
+    this.id = data.id_usuario || "";
+    this.nombre = data.nombre || "";
+    this.correo = data.correo || "";
+    this.calle = data.calle || "";
+    this.telefono = data.telefono || "";
+    this.pais = data.pais || "";
+    this.estado = data.estado || "";
+    this.colonia = data.colonia || "";
+    this.password = data.password || "";
+    this.ciudad = data.ciudad || "";
+    this.cp = data.cp || "";
+    this.delegacion = data.delegacion || "";
+    this.referencia = data.referencia || "";
+  }
+}
 
-    this.descripcion= data.descripcion;
-    this.link = data.link;
+Auth.methods.hashPassword = async (password) => {
+  const sha512hashedPassword = createHash("sha512")
+    .update(password)
+    .digest("hex");
+  const salt = await bcrypt.genSalt();
+  return await bcrypt.hash(sha512hashedPassword, salt);
+};
+
+Auth.methods.comparePassword = async (password, hashedPassword) => {
+  const sha512hashedPassword = createHash("sha512").update(password).digest("hex");
+  return bcrypt.compare(sha512hashedPassword, hashedPassword);
+};
+
+
+Auth.methods.createUser = async (data) => {
+  try {
+    const { nombre, telefono, correo, password } = data;
+    const indat = [nombre, correo, telefono, password];
+    const queryUser = consults.insertUser;
+    const shot = await conn.query(queryUser, indat);
+    const dataUser = new Auth({
+      id_usuario: shot.rows[0].id,
+      ...shot.rows[0],
+    });
+    const res = Validation.methods.newMessage(
+      "Query Successfully",
+      "Query Successfully",
+      dataUser
+    );
+    if (shot.rows[0] == undefined) return new Validation(shot);
+    return res;
+  } catch (error) {
+    return Validation.methods.newError(
+      "Error en la consula",
+      "Hubo un error al consultar las credenciales " + error
+    );
   }
 };
 
-Auth.methods.signin = async () => {
-    try {
-        const queryLogin = "SELECT id_usuario,nombre,correo,password FROM has"
-    } catch (error) {
-        
-    }
-}
-
-Auth.methods.getInfoCard = async () => {
-    try {
-        const queyCard = "SELECT * FROM mascota WHERE id_mascota = IDMASCOTA JOIN IMAGEN DE LA MASCOTA";
-        const validation = Validation.methods.isQueryResponseEmpty(queyCard);
-        return validation;
-    } catch (error) {
-        return Validation.methods.newError("Error en la consula","Hubo un error al consultar la descrpcion de la mascota");
-    }
+Auth.methods.getCredentialByEmail = async (email) => {
+  try {
+    const queyCard = consults.getCredentialByEmail;
+    const values = [email];
+    const shot = await conn.query(queyCard, values);
+    const validation = Validation.methods.isQueryResponseEmpty(shot);
+    if (validation.error) return validation;
+    return validation;
+  } catch (error) {
+    return Validation.methods.newError(
+      "Error en la consula",
+      "Hubo un error al consultar las credenciales " + error
+    );
+  }
 };
+
+
+export default Auth;

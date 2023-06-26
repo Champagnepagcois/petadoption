@@ -30,17 +30,17 @@ Validation.methods.newError = (name, message) => {
   return validation;
 };
 Validation.methods.isQueryResponseEmpty = (data, name, message) => {
-  //console.table(data);
+  //console.table(data.rows);
   let validation = new Validation({
     name: name ? name : "Query NOT Empty",
-    data: data,
+    data: data.rows,
     error: false,
     message: message ? message : "Query successfully",
   });
-  if (validation.rows == null) {
+  if (validation.data == undefined) {
     validation.name = "Query Empty";
     validation.error = true;
-    validation.data = validation.data.docs[0] ? validation.data.docs[0] : "";
+    validation.data = validation.data;
     validation.message = "Query didn't find any result";
   }
   return validation;
