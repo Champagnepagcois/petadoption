@@ -8,6 +8,12 @@
     justify-content: center;
     align-items: center;
 }
+.section-add-pet form{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .container-add-pet{
     width: 80%;
     height: 100%;
@@ -36,32 +42,55 @@
     display: flex;
     flex-direction: column;
 }
-.add-pet-container-container-body-container-images-title h2{
+.add-pet-container-container-body-container-images-title, .add-pet-container-container-body h2{
     font-size: 1.5rem;
     color: #D2D2D2;
 }
 .add-pet-container-container-body-container-images-images{
     width: 100%;
     display: flex;
-    gap: 20px;
+    align-self: center;
+    justify-self: center;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 .add-pet-container-container-body-container-images-image{ 
-    height: calc(60vw / 5);
-    width: calc(60vw / 5);
-    background-color: #d2d2d288;   
-    border-radius: 20px;
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(200px,
+        1fr)
+    );
+    gap: 10px;
+    min-height: 150px;
+    overflow-x: hidden;
+}
+.add-pet-container-container-body-container-images-image-container-input{
+    width: 100%;
+    min-height: 150px;
+    border-radius: 15px;
+    border: 1px solid #D2D2D2;
+    overflow: hidden;
 }
 .add-pet-container-container-body-container-images-image img{
     aspect-ratio: 1/1;
     object-fit: covers;
+    width: 100%;
 }
 .add-pet-container-container-body-container-inputs{
     width: 100%;
-    min-height: 50vh;
     flex-wrap: wrap;
     display: flex;
+    flex-direction: column;
+}
+.add-pet-container-container-body-container-inputs-container{
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: start;
 }
 .add-pet-container-container-body-container-inputs-column{
     width: 50%;
@@ -76,11 +105,15 @@
     display: flex;
     flex-direction: column;
 }
+
 .add-pet-container-container-body-container-input label{
     color:#d2d2d288;
     font-weight: bold;
 }
-.add-pet-container-container-body-container-input input[type="text"],select,fieldset,option{
+.add-pet-container-container-body-container-input  input[type="date"],
+.add-pet-container-container-body-container-input input[type="text"],
+.add-pet-container-container-body-container-input select,
+.add-pet-container-container-body-container-input option{
     height: 30px;
     border-radius: 10px;
     border-color: #00000048;
@@ -90,7 +123,23 @@
     padding: 5px;
     margin: 15px 0;
 }
-
+.No-add-pet-container-container-body-container-input{
+    height: 30px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight:500;
+    padding: 5px;
+    margin: 15px 0;
+    border: 0;
+}
+.No-add-pet-container-container-body-container-input label{
+    color: #000;
+}
+.No-add-pet-radio{
+    display: flex;
+    justify-content:start;
+    gap: 15px;
+}
 .add-pet-container-container-body-container-textArea{
     width: 90%;
     display: flex;
@@ -111,12 +160,19 @@
 .add-pet-container-container-body-container-textArea textarea{
     resize: none;
     width: 100%;
-    height: 30vh;
+    height: auto;
     font-size: 1.2rem;
     font-weight: bold;
+    padding: 5px;
     border-radius: 10px;
     border-color: #00000048;
     background-color: #d2d2d288;
+}
+.add-pet-container-container-body-container-hr {
+    width: 100%;
+    border: 1px solid #000;
+    margin: 15px 0;
+    border-radius: 1px;
 }
 .add-pet-container-container-body-container-btn{
     width: 100%;

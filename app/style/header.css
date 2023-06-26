@@ -1,4 +1,4 @@
-header{
+.header-desktop{
     width: 100%;
     height: 80px;
     max-height: 100px;
@@ -8,6 +8,9 @@ header{
     position: fixed;
     background-color: #F7F9F9;
     z-index: 100;
+}
+.header-phone{
+  display: none;
 }
 
 .header-image{
@@ -24,7 +27,7 @@ header{
     justify-content: center;
 }
 .container-buttons-center{
-    width: 40%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
     align-items:center;
@@ -33,7 +36,8 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 75px;
+  min-width: 75px;
+  width: 80px;
   font-size: 15px;
   height: 40px;
   background-color:#E76F51;
@@ -43,16 +47,24 @@ header{
   border: 0;
 
 }
+.header-container-right{
+  width: 33%;
+  display: flex;
+  justify-content: right;
+}
 .header-searchbar{
-    width: 33%;
+  position: relative;
+    width: 70%;
+    min-width: 150px;
     height: 100%;
     display: flex;
-    justify-content: right;
+    justify-content: left;
 }
 .search {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: right;
     text-align: center;
   }
   
@@ -64,9 +76,10 @@ header{
     color: #646464;
     padding: 0.7rem 1rem;
     border-radius: 30px;
-    width: 12em;
+    width: auto;
+    min-width: 50px;
     transition: all ease-in-out .5s;
-    margin-right: -2rem;
+    padding-right: 40px;
   }
   
   .search__input:hover, .search__input:focus {
@@ -98,7 +111,139 @@ header{
   }
   
   .search__icon {
+    position: absolute;
+    right: 1.3rem;
     height: 1.3em;
     width: 1.3em;
+    transform: translateY(-50%);
     fill: #000000;
   }
+  .header-container-profile{
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    justify-items: center;
+    align-items: center;
+  }
+  .header-container-profile a{
+    display: flex;
+    border-radius: 50%;
+    align-items:center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #E76F51;
+    color: #FFF;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+
+@media only screen and (max-width: 600px) {
+  .header-desktop{
+    display: none;
+}
+.header-phone{
+  width: 100%;
+  min-width: 400px;
+  height: 80px;
+  max-height: 100px;
+  display: flex;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: #F7F9F9;
+  z-index: 100;
+}
+
+.header-image{
+    display: none;
+}
+.header-container-buttons{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+.container-buttons-center{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.container-buttons-center a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  font-size: 15px;
+  height: 40px;
+  background-color:#E76F51;
+  border-radius: 50px;
+  color: #FFF;
+  text-decoration: none;
+  border: 0;
+
+}
+.header-container-right{
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+.header-searchbar{
+    width: 70%;
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+}
+.search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+  }
+  
+  .search__input {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: #FFF;
+    border: none;
+    color: #646464;
+    padding: 0.7rem 1rem;
+    border-radius: 30px;
+    width: auto;
+    min-width: 50px;
+    transition: all ease-in-out .5s;
+    padding-right: 40px;
+  }
+  .search__icon {
+    position: absolute;
+    right: 1.3em;
+    height: 1.3em;
+    width: 1.3em;
+    transform: translateY(-50%);
+    fill: #000000;
+  }
+
+  .header-container-profile{
+    width: 20%;
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+  }
+  .header-container-profile a{
+    display: flex;
+    border-radius: 50%;
+    align-items:center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #E76F51;
+    color: #FFF;
+    font-weight: bold;
+  }
+}
