@@ -1,15 +1,20 @@
-import React from "react";
+'use client'
+import React, { useEffect } from "react";
 import "../style/details.css";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
-
+  const router = useRouter()
+  useEffect(()=>{
+    router.back();
+  },[])
   return (
     <div className="spacetop">
       <section className="section-details-pets">
         <div className="section-details-pets-container">
           <div className="section-details-pets-container-title">
-            <h1>{params.id}</h1>
+            <h1></h1>
           </div>
           <div className="section-details-pets-container-images">
             <div className="details-pets-container-images-container">

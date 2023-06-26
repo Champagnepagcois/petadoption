@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import "../style/authPageSignin.css";
 import "../style/authPageSignup.css";
-import Signin from "@/components/signin";
-import Signup from "@/components/signup";
+import Signin from "../../components/signin";
+import Signup from "../../components/signup";
 
 export default function AuthPage() {
   const [signIn, setSignin] = useState(true);

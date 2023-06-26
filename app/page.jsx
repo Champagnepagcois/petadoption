@@ -1,65 +1,58 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import "./style/indexPage.css";
 import HomeCarruselElement from "../components/homeCarruselElement";
 
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import axios from "axios";
+import Spin from "../components/Spin";
 
 export default function IndexPage() {
+  const [dataCarrusel, setDataCarrusel] = useState(null);
+  const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get("http://localhost:3000/api/carrusel")
+      .then((res) => res)
+      .then((data) => {
+        setDataCarrusel(data.data);
+        setLoading(false);
+      });
+  }, []);
   const router = useRouter();
   return (
     <div className="spacetop">
       <section className="section-index">
         <div className="index-background-image">
-          <Splide
-            hasTrack={false}
-            options={{ rewind: true, height: "calc(100vh - 80px)" }}
-          >
-            <SplideTrack>
-              <SplideSlide>
-                <HomeCarruselElement
-                  imgurl={
-                    "https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                  }
-                  nombre={"Chimuelo"}
-                  message={"La adopcion de mascotas es lo mejor para todos..."}
-                  edad={15}
-                  descripcion={
-                    "Soy un perrito cariñoso que le gusta salir a pasear, el pollito y dormir 14 horas diarias"
-                  }
-                  id={0}
-                />
-              </SplideSlide>
-              <SplideSlide>
-                <HomeCarruselElement
-                  imgurl={
-                    "https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                  }
-                  nombre={"Chimuelo"}
-                  message={"La adopcion de mascotas es lo mejor para todos.."}
-                  edad={15}
-                  descripcion={
-                    "Soy un perrito cariñoso que le gusta salir a pasear, el pollito y dormir 14 horas diarias"
-                  }
-                  id={0}
-                />
-              </SplideSlide>
-              <SplideSlide>
-                <HomeCarruselElement
-                  imgurl={"https://picsum.photos/200"}
-                  nombre={"Chimuelo"}
-                  message={"La adopcion de mascotas es lo mejor para todos.."}
-                  edad={15}
-                  descripcion={
-                    "Soy un perrito cariñoso que le gusta salir a pasear, el pollito y dormir 14 horas diarias"
-                  }
-                  id={0}
-                />
-              </SplideSlide>
-            </SplideTrack>
-          </Splide>
+          {isLoading ? (
+            <Spin />
+          ) : (
+            <Splide
+              hasTrack={false}
+              options={{ rewind: true, height: "calc(100vh - 80px)" }}
+            >
+              <SplideTrack>
+                {dataCarrusel?.map((element) => (
+                  <SplideSlide>
+                    <HomeCarruselElement
+                      imgurl={element.link}
+                      nombre={element.nombre}
+                      message={
+                        "La adopcion de mascotas es lo mejor para todos.."
+                      }
+                      edad={element.edad}
+                      descripcion={element.descripcion}
+                      id={element.id}
+                    />
+                  </SplideSlide>
+                ))}
+              </SplideTrack>
+            </Splide>
+          )}
         </div>
       </section>
       <section className="section-decoration">
@@ -220,9 +213,9 @@ export default function IndexPage() {
         </div>
       </section>
       <section className="section-contact">
-          <div className="contact-container-title">
-            <h1>Contáctanos</h1>
-          </div>
+        <div className="contact-container-title">
+          <h1>Contáctanos</h1>
+        </div>
         <div className="contact-container">
           <div className="contact-container-content">
             <div className="contact-container-content-image">
