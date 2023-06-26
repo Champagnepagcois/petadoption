@@ -3,26 +3,33 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 8443",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "rimraf r -rf node_modules/pg-cloudflare"
+    "postinstall": "node fix.js"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "@splidejs/react-splide": "^0.7.12",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "cookie": "^0.5.0",
+    "dns": "C:/Users/Usuario/Documents/Escuela/Escom/4to/aw/proyecto/pet-adoption/src/mock/dns",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
+    "formidable": "^2.1.2",
     "jose": "^4.14.4",
     "jsonwebtoken": "^9.0.0",
     "moment": "^2.29.4",
     "next": "13.4.4",
-    "pg": "^8.11.0",
+    "pg": "^8.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "uuid": "^9.0.0"
+    "react-redux": "^8.0.5",
+    "uuidv4": "^6.2.13"
+  },
+  "devDependencies": {
+    "@types/node": "20.3.1"
   }
 }
