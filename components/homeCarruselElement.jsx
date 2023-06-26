@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function HomeCarruselElement({
@@ -8,6 +9,11 @@ export default function HomeCarruselElement({
   descripcion,
   id,
 }) {
+  const router = useRouter();
+  const handleSubmitDetails=(e)=>{
+    //e.target.preventdefault();
+    router.replace(`DetailsPet/${id}`);
+  }
   return (
     <>
       <div className="background-image">
@@ -18,10 +24,10 @@ export default function HomeCarruselElement({
       </div>
       <div className="background-container-info">
         <h1>{nombre}</h1>
-        <h3>{edad}</h3>
+        <h3>{edad} meses</h3>
         <h2>{descripcion}</h2>
         <div className="background-container-info-button">
-          <input type="submit" value="Ver mas" />
+          <input type="submit" value="Ver mas" onClick={handleSubmitDetails}/>
         </div>
       </div>
     </>

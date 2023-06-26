@@ -1,25 +1,39 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useUser } from "../app/context/UserContext";
 
 export default function Signin() {
+  const router = useRouter();
+  const { newSession } = useUser();
   const [credentials, setCredentials] = useState({
     correo: "",
     password: "",
     hidden: false,
   });
-  const handleChangecredentials=e=>{
-    const {name,value} = e.target;
-    setCredentials(prevState=>({
-        ...prevState,
-        [name]:value
+  const handleChangecredentials = (e) => {
+    const { name, value } = e.target;
+    setCredentials((prevState) => ({
+      ...prevState,
+      [name]: value,
     }));
     console.log(credentials);
   };
   const handlesignin = async (e) => {
     e.preventDefault();
     console.log("Sign In");
-    const res =await axios.post('/api/auth/signin',credentials);
-    console.log(res);
+    const res = axios
+      .post("/api/auth/signin", credentials)
+      .then((res) => {
+        const { id, nombre, correo } = res.data.data;
+        newSession(id, nombre, correo);
+        alert("Bienvenido " +nombre);
+        router.replace("/Search");
+      })
+      .catch((err) => {
+        alert("Credenciales invalidas " + err);
+      });
+    
   };
   return (
     <>

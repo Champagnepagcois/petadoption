@@ -2,32 +2,28 @@
 import axios from "axios";
 import React from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
-export default function CardsPetsSearch({id,estado,delegacion,link,nombre,edad,raza,size}) {
+export default function AddCardPet() {
   const router = useRouter();
   const handleRedirectPet=async()=>{
-    router.replace(`DetailsPet/${id}`);
+    router.replace('/User/AddPet');
   }
   return (
     <div onClick={() => handleRedirectPet()} className="itemcontent" key={crypto.randomUUID()}>
-      <div className="itemcontent-image">
-        <img
-          src={"/images/uploaded/"+link}
-          alt="Imagen perrito"
-        />
+      <div className="itemcontent-imagecenterAddPet">
+        <Image src="/images/home/plus.png" width={100} height={100}  alt="Icon image"/>
       </div>
       <div className="itemcontent-info">
         <div className="itemcontent-info-location">
-          <h2>{estado}, {delegacion}</h2>
+            <h2>Agregar una mascota</h2>
         </div>
         <div className="itemcontent-info-name">
-          <p>{nombre}, {edad} meses</p>
         </div>
         <div className="itemcontent-info-description">
-          <p>{raza}</p>
-          <p>{size}</p>
         </div>
       </div>
     </div>
   );
 }
+ 
