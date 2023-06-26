@@ -8,11 +8,11 @@ export async function middleware(request) {
       return NextResponse.redirect(new URL("/Auth", request.url));
     }
     try {
-      const { payload } = await jwtVerify(
+      /* const { payload } = await jwtVerify(
         jwt.value,
         new TextEncoder().encode("secret")
       );
-      console.log(payload);
+      console.log(payload); */
       return NextResponse.next();
     } catch (error) {
       console.log(error);
